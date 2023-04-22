@@ -11,7 +11,8 @@ public class Main {
         //task 2
         installApp();
         //task 3
-        deliveryTime();
+        deliveryTime(95);
+        deliveryDays(95);
         //
     }
 
@@ -41,22 +42,29 @@ public class Main {
         }
     }
 
-    public static void deliveryTime()
 
-    {
-        int deliveryDistance = 95;
-        int days = -1;
-        if (deliveryDistance <= 20) {
-            days = 1;
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            days = 2;
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            days = 3;
-        }
-        if (days > 0) {
-            System.out.println("Потребуется дней: " + days);
-        } else {
-            System.out.println("Доставка не осуществляется");
-        }
+        private static void deliveryDays (int deliveryDistance) {
+        int days = deliveryTime(deliveryDistance);
+        if (days>0){System.out.println("Потребуется дней: " + days);}
+        else {System.out.println( "Доставка не осуществляется");}
     }
-}
+
+        public static int deliveryTime( int deliveryDistance)
+
+        {
+            int days;
+            if (deliveryDistance <= 20) {
+                days = 1;
+            } else if (deliveryDistance <= 60) {
+                days = 2;
+            } else if (deliveryDistance <= 100) {
+                days = 3;
+            } else {
+                days = -1;
+            }
+            return days;
+        }
+
+    }
+
+
